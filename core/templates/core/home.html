@@ -1,0 +1,41 @@
+{% extends "core/base.html" %} {% block title %}Rychardsson - Portfólio{%
+endblock %} {% block content %}
+<h1>Rychardsson Gonzaga de Souza</h1>
+<p>Engenharia de Computação | Dados & Backend</p>
+
+<h2>Experiência</h2>
+<ul>
+  {% for exp in experiencias %}
+  <li>
+    <strong>{{ exp.cargo }}</strong> - {{ exp.empresa }} ({{ exp.periodo }})<br />{{
+    exp.descricao }}
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Projetos</h2>
+<ul>
+  {% for proj in projetos %}
+  <li>
+    <strong>{{ proj.titulo }}</strong> - {{ proj.tecnologias }}<br />{{
+    proj.descricao }}<br />
+    <a href="{{ proj.link }}" target="_blank">Ver projeto</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Contato</h2>
+<p>Email: rychardssong2@gmail.com</p>
+<p>
+  LinkedIn:
+  <a href="https://linkedin.com/in/rychardssonsouza" target="_blank"
+    >linkedin.com/in/rychardssonsouza</a
+  >
+</p>
+<p>
+  GitHub:
+  <a href="https://github.com/Rychardsson" target="_blank"
+    >github.com/Rychardsson</a
+  >
+</p>
+{% endblock %}
