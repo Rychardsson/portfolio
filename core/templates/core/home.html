@@ -1,41 +1,90 @@
-{% extends "core/base.html" %} {% block title %}Rychardsson - Portfólio{%
-endblock %} {% block content %}
-<h1>Rychardsson Gonzaga de Souza</h1>
-<p>Engenharia de Computação | Dados & Backend</p>
+{% extends "core/base.html" %} {% block title %}Rychardsson{% endblock %}
+{%block content %}
+<!-- Cabeçalho / Hero -->
+<section class="text-center mb-12">
+  <h1 class="text-4xl font-bold mb-2">Rychardsson Gonzaga de Souza</h1>
+  <p class="text-lg text-gray-400">
+    Engenharia de Computação | Dados & Backend
+  </p>
+</section>
 
-<h2>Experiência</h2>
-<ul>
-  {% for exp in experiencias %}
-  <li>
-    <strong>{{ exp.cargo }}</strong> - {{ exp.empresa }} ({{ exp.periodo }})<br />{{
-    exp.descricao }}
-  </li>
-  {% endfor %}
-</ul>
+<!-- Experiência -->
+<section class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">Experiência</h2>
+  <div class="space-y-4">
+    {% for exp in experiencias %}
+    <div class="p-4 bg-gray-800 rounded-lg shadow-md">
+      <h3 class="text-xl font-medium">{{ exp.cargo }} – {{ exp.empresa }}</h3>
+      <span class="text-sm text-gray-400">{{ exp.periodo }}</span>
+      <p class="mt-2 text-gray-200">{{ exp.descricao }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
-<h2>Projetos</h2>
-<ul>
-  {% for proj in projetos %}
-  <li>
-    <strong>{{ proj.titulo }}</strong> - {{ proj.tecnologias }}<br />{{
-    proj.descricao }}<br />
-    <a href="{{ proj.link }}" target="_blank">Ver projeto</a>
-  </li>
-  {% endfor %}
-</ul>
+<!-- Projetos -->
+<section class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">Projetos</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    {% for proj in projetos %}
+    <div
+      class="p-4 bg-gray-800 rounded-lg shadow-lg flex flex-col justify-between"
+    >
+      <div>
+        <h3 class="text-xl font-medium mb-2">{{ proj.titulo }}</h3>
+        <p class="text-gray-200 mb-2">{{ proj.descricao }}</p>
+      </div>
+      <div>
+        <span
+          class="inline-block bg-gray-700 text-gray-300 text-xs px-2 py-1 rounded"
+        >
+          {{ proj.tecnologias }}
+        </span>
+        {% if proj.link %}
+        <a
+          href="{{ proj.link }}"
+          target="_blank"
+          class="mt-3 inline-block text-sm font-semibold underline text-blue-400 hover:text-blue-300"
+        >
+          Ver no GitHub
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
-<h2>Contato</h2>
-<p>Email: rychardssong2@gmail.com</p>
-<p>
-  LinkedIn:
-  <a href="https://linkedin.com/in/rychardssonsouza" target="_blank"
-    >linkedin.com/in/rychardssonsouza</a
-  >
-</p>
-<p>
-  GitHub:
-  <a href="https://github.com/Rychardsson" target="_blank"
-    >github.com/Rychardsson</a
-  >
-</p>
+<!-- Contato -->
+<section class="text-center">
+  <h2 class="text-2xl font-semibold mb-4">Contato</h2>
+  <div class="text-gray-300 space-y-1">
+    <p>
+      Email:
+      <a href="mailto:rychardssong2@gmail.com" class="hover:text-white"
+        >rychardssong2@gmail.com</a
+      >
+    </p>
+    <p>
+      LinkedIn:
+      <a
+        href="https://linkedin.com/in/rychardssonsouza"
+        target="_blank"
+        class="hover:text-white"
+      >
+        linkedin.com/in/rychardssonsouza
+      </a>
+    </p>
+    <p>
+      GitHub:
+      <a
+        href="https://github.com/Rychardsson"
+        target="_blank"
+        class="hover:text-white"
+      >
+        github.com/Rychardsson
+      </a>
+    </p>
+  </div>
+</section>
 {% endblock %}

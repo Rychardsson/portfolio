@@ -1,11 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" class="dark">
   <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Portfólio{% endblock %}</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Forçar dark mode -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: { extend: {} },
+      };
+    </script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body>
-    <div class="container">{% block content %} {% endblock %}</div>
+  <body class="bg-gray-900 text-gray-100">
+    <div class="max-w-4xl mx-auto p-6">{% block content %}{% endblock %}</div>
   </body>
 </html>
